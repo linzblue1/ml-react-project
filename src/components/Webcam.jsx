@@ -36,9 +36,7 @@ const Webcam = props => {
             }
 
         }
-        // p.imageReady() {
-        //     image(puffin, 0, 0, width, height)
-        // }
+
 
 
         p.setup = () => {
