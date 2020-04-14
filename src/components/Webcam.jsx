@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
-import p5, { VIDEO, height } from 'p5'
+import p5, { VIDEO } from 'p5'
 import ml5 from 'ml5'
 
 
 const Webcam = props => {
     const myRef = useRef();
-    let [label, setLabel] = useState('')
+    const [label, setLabel] = useState([
+        { label: 'Starting Label', confidence: 0 },
+    ]);
 
     useEffect(() => {
         let myp5 = new p5(sketch, myRef.current)
@@ -49,7 +51,7 @@ const Webcam = props => {
             if (error) {
                 console.error(error);
             } else {
-                console.log(result)
+                // console.log(result)
                 setLabel(result);
                 classifier.classify(gotResults);
             }
@@ -101,7 +103,7 @@ const Webcam = props => {
             p.image(cam, 0, 0)
             p.fill(255);
             p.textSize(32);
-            p.text(label, 10, 530);
+            p.text(label[0].label, 10, 530);
         }
 
     };
