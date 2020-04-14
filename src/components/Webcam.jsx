@@ -71,7 +71,7 @@ const Webcam = props => {
                 classifier.addImage('thumbUpRight');
             })
 
-            thumbDownRight = p.createButton('DownRight');
+            thumbDownRight = p.createButton('Down Right');
             thumbDownRight.mousePressed(function () {
                 classifier.addImage('thumbDownRight');
             })
@@ -96,11 +96,12 @@ const Webcam = props => {
 
 
         p.draw = () => {
-            p.background(0)
+
+            p.background(0);
             p.image(cam, 0, 0)
             p.fill(255);
             p.textSize(32);
-            p.text(label, 10, height - 20);
+            p.text(label, 10, 530);
         }
 
     };
