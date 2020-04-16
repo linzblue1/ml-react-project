@@ -11,7 +11,7 @@ const Webcam = props => {
 
     useEffect(() => {
         let myp5 = new p5(sketch, myRef.current)
-    });
+    }, []);
 
 
     const sketch = (p) => {
@@ -51,7 +51,7 @@ const Webcam = props => {
             if (error) {
                 console.error(error);
             } else {
-                // console.log(result)
+                console.log(result)
                 setLabel(result);
                 classifier.classify(gotResults);
             }
